@@ -9,11 +9,12 @@ export const AppRouter = () => {
     return (
         <div>
         <Routes>
-                <Route path='/' element={<NavBar />}>
+                {/* <Route path='/' element={<NavBar />}>
                     <Route index element={<Home/>} />
-                    <Route path='pokemon/:id' element={<PokemonDisplay />} />
                     
-            </Route>
+                    
+                </Route> */}
+                <Route path='/' element={<PokemonDisplay />} />
         </Routes>
        
             

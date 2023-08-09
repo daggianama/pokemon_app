@@ -1,6 +1,29 @@
 #root {
   max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  justify-content: center;
+  height: 100vh;
+  padding: 1rem;
+  width: 100%;
+}
+
+/* NAVBAR Path: src/components/Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #ccc;
+}
+
+
+
+
+/* PokemonDisplay Path: src/components/PokemonDisplay */
+
+.pokemon-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 1rem 0;
+  border: 1px solid #ccc;
 }
