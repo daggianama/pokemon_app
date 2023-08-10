@@ -3,10 +3,12 @@
 
 :root {
   font-family: 'Nunito',  Arial, sans-serif;
+  font-size: 14px;
   line-height: 1.5;
   color: #575757;
   --primary: #575757;
   --black: #252525;
+
 }
 
 * {
@@ -16,20 +18,26 @@
 
 body {
   display: flex;
-  max-width: 80vw;
+  min-width: 740px;
   margin: 0 auto;
-  padding: 2.5rem;
+  padding: 2rem;
   flex-direction: column;
-  width: 100%;
+  width: 74%;
   align-items: center;
 }
 
 h1 {
-  font-size: 3em;
+  font-size: 4em;
   line-height: 1.1;
 }
 
 h3 {
-  font-size: 1em;
+  font-size: 1.1em;
   line-height: 1.1;
+}
+
+tr td:first-child{
+  padding-right: .7em;
+  width: 100%;
+  text-align: right;
 }

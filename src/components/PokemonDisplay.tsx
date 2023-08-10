@@ -64,51 +64,75 @@ export const PokemonDisplay = () => {
 							alt="pokemon"
 						/>
 					</div>
+
 					<div className="pokemon-body">
 						<div className="pokemon-info">
-							<div className="characteristic">
-								<h3>ID</h3>
-								<p>{pokemon.id}</p>
-							</div>
-							<div className="characteristic">
-								<h3>Height</h3>
-								<p>{pokemon.height}</p>
-							</div>
-							<div className="characteristic">
-								<h3>Weight</h3>
-								<p>{pokemon.weight}</p>
-							</div>
-							<div className="characteristic">
-								<h3>Abilities</h3>
-								<p>
-									{pokemon.abilities.map((ability) => (
-										<Tag bordered={false} color="#b5d3ab">
-											{ability.ability.name.toUpperCase()}
-										</Tag>
-									))}
-								</p>
-							</div>
-							<div className="characteristic">
-								<h3>Type</h3>
-								<p>
-									{pokemon.types.map((type) => (
-										<Tag color="#FFD700">{type.type.name}</Tag>
-									))}
-								</p>
-							</div>
+							<table>
+								<tr>
+									<td>
+										<h3>ID</h3>
+									</td>
+									<td>{pokemon.id}</td>
+								</tr>
+								<tr>
+									<td>
+										<h3>Height</h3>
+									</td>
+									<td>{pokemon.height}</td>
+								</tr>
+								<tr>
+									<td>
+										<h3>Weight</h3>
+									</td>
+									<td>{pokemon.weight}</td>
+								</tr>
+								<tr>
+									<td>
+										<h3>Abilities</h3>
+									</td>
+
+									<td className="abilities">
+										{pokemon.abilities.map((ability) => (
+											<Tag bordered={false} color="#b5d3ab">
+												{ability.ability.name}
+											</Tag>
+										))}
+									</td>
+								</tr>
+								<tr>
+									<td>
+										<h3>Type</h3>
+									</td>
+									<td className="types">
+										{pokemon.types.map((type) => (
+											<Tag color="#FFD700">{type.type.name}</Tag>
+										))}
+									</td>
+								</tr>
+							</table>
 						</div>
+
 						<div className="pokemon-stats">
-							{pokemon.stats.map((stat) => (
-								<div className="characteristic">
-									<h3>{stat.stat.name}</h3>
-									{stat.base_stat}{" "}
-									<Progress
-										percent={(stat.base_stat * 100) / 65}
-										size={[300, 20]}
-										showInfo={false}
-									/>
-								</div>
-							))}
+							<table className="stats-table">
+								
+									{pokemon.stats.map((stat) => (
+										<tr >
+											<td>
+												<h3>{stat.stat.name}</h3>
+											</td>
+											<td>
+                                                {stat.base_stat}{" "}
+                                            </td>
+                                            <td>
+												<Progress
+													percent={(stat.base_stat * 100) / 65}
+													size={[240, 17]}
+													showInfo={false}
+												/>
+											</td>
+										</tr>
+									))}
+							</table>
 						</div>
 					</div>
 				</div>
