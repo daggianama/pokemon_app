@@ -23,12 +23,25 @@
   flex-direction: column;
   align-self: center;
   justify-content: center;
-  padding: 4rem 10rem;
+  padding: 4rem;
   border-radius: 2rem;
   box-shadow: 0 0 0.3rem rgba(0, 0, 0, 0.144);
   background-color: #fff;
   width: 100%;
   margin-bottom: 4rem;
+}
+
+.pokemon-body {
+  display: flex;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 1rem 0;
+}
+
+.characteristic {
+  display: flex;
+  gap: 1.4rem;
+  align-items: center;
 }
 
 .pokemon-header {

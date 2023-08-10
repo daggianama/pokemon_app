@@ -8,13 +8,15 @@ import { Home } from './pages/Home';
 export const AppRouter = () => {
     return (
         <div>
-        <Routes>
+            <Routes>
+                <Route path='/' element={<PokemonDisplay />} />
+                
                 {/* <Route path='/' element={<NavBar />}>
-                    <Route index element={<Home/>} />
+                    <Route index element={<Home />} />
+                    <Route path='/pokemon/:id' element={<PokemonDisplay />} />
                     
                     
                 </Route> */}
-                <Route path='/' element={<PokemonDisplay />} />
         </Routes>
        
             
