@@ -1,9 +1,16 @@
-import React from "react";
+import { useEffect } from "react";
+import { useNavigate } from "react-router";
 
 export const Home = () => {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        navigate("/pokemon/jigglypuff");
+    }, [navigate]);
+
     return (
         <div>
-            <h1>Please search for a pokemon</h1>
+            
         </div>
     );
 }

@@ -1,26 +1,19 @@
 import React from "react";
-import { Input, Space } from 'antd';
-import { AudioOutlined } from '@ant-design/icons';
-const { Search } = Input;
+import { SearchPokemon } from "./SearchPokemon";
 
-const suffix = (
-  <AudioOutlined
-    style={{
-      fontSize: 16,
-      color: '#1677ff',
-    }}
-  />
-);
 
-const onSearch = (value: string) => console.log(value);
+interface PokemonDisplayProps {
+  onSearch: (value: string) => void;
+}
 
-export const NavBar = () => {
-    return (
-        <div className="navbar">
-            <Space direction="vertical">
-                {/* <Search placeholder="input search text" allowClear onSearch={onSearch} style={{ width: 200 }} /> */}
-                <Search placeholder="Search a pokemon" size="large" suffix={suffix} allowClear onSearch={onSearch} />
-            </Space>
-        </div>
-    );
+
+export const NavBar: React.FC<PokemonDisplayProps> = ({ onSearch }) => {
+
+
+  return (
+      <div className="navbar">
+          <SearchPokemon onSearch={onSearch} />
+          
+      </div>
+  );
 }
