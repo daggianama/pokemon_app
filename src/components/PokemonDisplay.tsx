@@ -40,19 +40,15 @@ interface Pokemon {
 	types: Type[];
 }
 
-//   interface PokemonDisplayProps {
-//       selectedPokemon: string;
-//   }
-
 export const PokemonDisplay: React.FC = () => {
 	const [pokemon, setPokemon] = useState<Pokemon | null>(null);
-	const { name } = useParams();
+    const { name } = useParams<{ name: string | undefined }>();
+
 
 	const getPokemon = async () => {
 		try {
-			const response = await fetch(
-				`https://pokeapi.co/api/v2/pokemon/${name}`
-			);
+            const formattedName = name?.toLowerCase().replace(/\s+/g, '');
+            const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${formattedName}`);
 			const data = await response.json();
 			data && setPokemon(data);
 			console.log(data);
@@ -160,7 +156,7 @@ export const PokemonDisplay: React.FC = () => {
 										<td>
 											<Progress
 												percent={(stat.base_stat * 100) / 65}
-												size={[210, 17]}
+												size={[210, 14]}
 												showInfo={false}
 											/>
 										</td>
