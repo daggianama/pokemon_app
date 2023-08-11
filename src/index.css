@@ -7,7 +7,7 @@
   line-height: 1.5;
   color: #575757;
   --primary: #575757;
-  --black: #252525;
+  --grey: #8e8e8ed3;
 
 }
 
@@ -36,8 +36,20 @@ h3 {
   line-height: 1.1;
 }
 
-tr td:first-child{
-  padding-right: .7em;
-  width: 100%;
-  text-align: right;
+p {
+  color: var(--grey);
 }
+
+table  {
+  border-collapse: separate; /* Necesario para usar border-spacing */
+  border-spacing: 8px; 
+
+      & tr td:first-child {
+        width: 100%;
+        text-align: right;
+        padding-right: 1.8em;
+      }
+  }
+
+
+ 
