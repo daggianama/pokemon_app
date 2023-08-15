@@ -41,12 +41,14 @@ interface Pokemon {
 }
 
 export const PokemonDisplay: React.FC = () => {
-	const [pokemon, setPokemon] = useState<Pokemon | null>(null);
+    const [pokemon, setPokemon] = useState<Pokemon | null>(null);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
     const { name } = useParams<{ name: string | undefined }>();
 
 
 	const getPokemon = async () => {
-		try {
+        try {
+            setIsLoading(true);
             const formattedName = name?.toLowerCase().replace(/\s+/g, '');
             const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${formattedName}`);
 			const data = await response.json();
@@ -54,7 +56,10 @@ export const PokemonDisplay: React.FC = () => {
 			console.log(data);
 		} catch (error) {
 			console.log(error);
-		}
+        }
+        finally {
+            setIsLoading(false);
+        }   
 	};
 
 	useEffect(() => {
@@ -73,7 +78,7 @@ export const PokemonDisplay: React.FC = () => {
 						<h1>{pokemon.species.name.toUpperCase()}</h1>
 						<img
 							src={pokemon.sprites.other.dream_world.front_default}
-							alt="pokemon"
+							alt= {pokemon.species.name}
 						/>
 					</div>
 
@@ -167,7 +172,9 @@ export const PokemonDisplay: React.FC = () => {
 						</div>
 					</div>
 				</div>
-			)}
+            )}
+            
+            {isLoading && <h3>Loading...</h3>}
 		</div>
 	);
 };
